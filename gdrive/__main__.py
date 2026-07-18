@@ -10,6 +10,16 @@ from gdrive import (
   DOWNLOAD_DIRECTORY
   )
 
+from flask import Flask
+import threading
+
+app = Flask('')
+@app.route('/')
+def home(): return "Bot Active"
+
+def run(): app.run(host='0.0.0.0', port=8080)
+threading.Thread(target=run).start()
+
 logging.basicConfig(
     level=logging.DEBUG,
     format="[IDN-GDrive-Bot] - %(message)s"
